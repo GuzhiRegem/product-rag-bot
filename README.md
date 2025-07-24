@@ -10,7 +10,7 @@ This is a quick demo for an agent that can interact with a DB of products.
 
 ### Models:
 
-```
+```yaml
 Product:
     name: str
     description: str
@@ -29,6 +29,8 @@ To run, copy the `env` file into a `.env` file.
 This uses local embeddings models and groq for LLM inference, you'll need to set your key in the env var `GROQ-API-KEY`.
 
 With this configured you'll need to run:
-```docker compose up```
+```sh
+docker compose up
+```
 
 Warning: This will take a while, given that it's downloading the embedding model inside of the container. The final size of the container is 9.57GB
