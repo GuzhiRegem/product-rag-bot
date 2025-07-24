@@ -15,7 +15,6 @@ class Environment:
     A class to manage environment variables for the application.
     """
     TOPK: int = int(secure_getenv("TOPK"))
-    EMBEDDING_URL = secure_getenv("EMBEDDING-URL")
     EMBEDDING_MODEL = secure_getenv("EMBEDDING-MODEL")
     GROQ_API_KEY = secure_getenv("GROQ-API-KEY")
     GROQ_MODEL = secure_getenv("GROQ-MODEL")

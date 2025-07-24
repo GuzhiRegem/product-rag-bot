@@ -33,7 +33,7 @@ class Product(BaseModel):
         return out
 
 
-class DB(Singleton):
+class DB(metaclass=Singleton):
     def __init__(
         self,
         embedding_client: Optional[EmbeddingClient] = None

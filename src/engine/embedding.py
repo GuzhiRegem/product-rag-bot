@@ -2,7 +2,7 @@ from engine.singleton import Singleton
 from sentence_transformers import SentenceTransformer
 
 
-class EmbeddingClient(Singleton):
+class EmbeddingClient(metaclass=Singleton):
     def __init__(
         self,
         embedding_model: str
