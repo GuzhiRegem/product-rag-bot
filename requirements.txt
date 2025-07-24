@@ -1,0 +1,8 @@
+gradio_client
+fastapi
+langchain-groq
+langgraph
+numpy
+dotenv
+uvicorn
+sentence_transformers
