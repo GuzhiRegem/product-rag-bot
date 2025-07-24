@@ -34,3 +34,17 @@ docker compose up
 ```
 
 Warning: This will take a while, given that it's downloading the embedding model inside of the container. The final size of the container is 9.57GB
+
+### Testing
+
+```sh
+# Local installation of environment
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cp .env src
+cd src
+
+# Run tests
+pytest test.py
+```

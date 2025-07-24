@@ -9,12 +9,19 @@ class EmbeddingClient(metaclass=Singleton):
         embedding_model: str
     ) -> None:
         print("Loading embedding model")
-        self.__model = SentenceTransformer(embedding_model)
-        print("Embedding model loaded")
+        try:
+            self.__model = SentenceTransformer(
+                model_name_or_path=embedding_model
+            )
+            print("Embedding model loaded")
+        except Exception as e:
+            raise ValueError(
+                f"Failed to load embedding model '{embedding_model}': {e}"
+            )
 
     def embed(
         self,
         text: str
     ) -> list[float]:
-        res = self.__model.encode([text])[0]
+        res = self.__model.encode([text])[0].tolist()
         return res
