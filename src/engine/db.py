@@ -34,6 +34,7 @@ class Product(BaseModel):
 
 
 class DB(metaclass=Singleton):
+    """A simple in-memory database for storing products."""
     def __init__(
         self,
         embedding_client: Optional[EmbeddingClient] = None
@@ -78,14 +79,13 @@ class DB(metaclass=Singleton):
         vec_a: list[float],
         vec_b: list[float]
     ) -> float:
-        """ Calculate cosine similarity between two vectors using polars. """
         v1_np = np.array(vec_a)
         v2_np = np.array(vec_b)
         dot_product = np.dot(v1_np, v2_np)
         magnitude_v1 = np.linalg.norm(v1_np)
         magnitude_v2 = np.linalg.norm(v2_np)
         if magnitude_v1 == 0 or magnitude_v2 == 0:
-            return 0.0  # Handle zero vectors
+            return 0.0
         return (dot_product / (magnitude_v1 * magnitude_v2))
 
     def search(self, query: str, top_k: int = 10) -> list[Product]:

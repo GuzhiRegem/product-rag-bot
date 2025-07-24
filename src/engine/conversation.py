@@ -7,6 +7,7 @@ class MessageDict(TypedDict):
 
 
 class Conversation:
+    """A class to manage a conversation with a series of messages."""
     def __init__(
         self,
         messages: Optional[list[MessageDict]] = None,

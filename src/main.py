@@ -26,6 +26,7 @@ def query(message: QueryInput):
         users_dict[message.user_id] = agent
     return agent.send_message(message.query)
 
+
 @app.get("/all_products")
 def all_products():
     return db.all()

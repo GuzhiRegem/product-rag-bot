@@ -3,13 +3,14 @@ from sentence_transformers import SentenceTransformer
 
 
 class EmbeddingClient(metaclass=Singleton):
+    """A client for generating embeddings using a specified model."""
     def __init__(
         self,
         embedding_model: str
     ) -> None:
-        print("loading model")
+        print("Loading embedding model")
         self.__model = SentenceTransformer(embedding_model)
-        print("model loaded")
+        print("Embedding model loaded")
 
     def embed(
         self,

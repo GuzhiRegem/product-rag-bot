@@ -8,6 +8,7 @@ from engine.conversation import Conversation, MessageDict
 
 
 class Agent:
+    """An agent that interacts with the database and manages conversations."""
     def __init__(self, db: Optional[DB] = None) -> None:
         if db is not None:
             self.__db = db
@@ -41,7 +42,7 @@ class Agent:
                 str: a list of all products.
             """
             return self.all_products_tool()
-        
+
         @tool
         def get_product(
             product_id: str
